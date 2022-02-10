@@ -5,6 +5,8 @@ const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 let articulosCarrito = [];
 
+let infoCurso = {};
+
 
 console.log(contenedorCarrito);
 
@@ -30,13 +32,35 @@ function agregarCurso(e) {
 
 //eliminar cursos del carrito
 function eliminarCurso(e) {
+
     if (e.target.classList.contains('borrar-curso')) {
         const cursoId = e.target.getAttribute('data-id'); //accedemos al id del curso para posteriomente eliminarlo
 
 
-        //Eliminar dle arreglo articulosCarrito por el data-id
-        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
-        carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
+
+        const mayUno = articulosCarrito.some(curso => {
+
+            if (curso.id === cursoId) {
+
+                if (curso.cantidad > 1) {
+
+
+                    curso.cantidad--;
+                    actualizarPrecio(infoCurso, curso);
+                    carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
+                } else {
+                    //Eliminar dle arreglo articulosCarrito por el data-id
+                    articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+
+                    carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
+                }
+            }
+        });
+
+
+
+
+
 
     }
 }
@@ -47,7 +71,7 @@ function leerDatosCurso(curso) {
 
 
     //crear un objeto con el contenido del curso actual
-    const infoCurso = {
+    infoCurso = {
         imagen: curso.querySelector('img').src,
         titulo: curso.querySelector('h4').textContent,
         precio: curso.querySelector('.precio span').textContent,
@@ -61,14 +85,11 @@ function leerDatosCurso(curso) {
         const cursos = articulosCarrito.map(curso => {
 
             if (curso.id === infoCurso.id) {
-                //para modificar el precio
-                let precioCurso = Number(infoCurso.precio.slice(1, infoCurso.precio.length));
 
 
                 curso.cantidad++;
 
-                //Actualizamos el precio
-                curso.precio = `$${precioCurso * curso.cantidad}`;
+                actualizarPrecio(infoCurso, curso);
 
 
                 return curso;
@@ -87,6 +108,16 @@ function leerDatosCurso(curso) {
 
 }
 
+function actualizarPrecio(infoCurso, curso) {
+    //para modificar el precio
+    let precioCurso = Number(infoCurso.precio.slice(1, infoCurso.precio.length));
+
+    //Actualizamos el precio
+    curso.precio = `$${precioCurso * curso.cantidad}`;
+
+}
+
+
 //Muestra el carrito de compras en el HTML
 
 function carritoHTML() {
@@ -102,7 +133,7 @@ function carritoHTML() {
             <td>${precio}</td>
             <td>${cantidad}</td>
             <td>
-                <a href="#" class="borrar-curso" data-id="${id}">X</a>
+                <a href="#" class="borrar-curso" data-precio="${precio}"  data-id="${id}">X</a>
             </td>
         `;
 
