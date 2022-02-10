@@ -17,6 +17,13 @@ function cargarEventListeners() {
 
     //elimina cursos del carrito
     carrito.addEventListener('click', eliminarCurso);
+
+
+    //vcaciar el carrito
+    vaciarCarrito.addEventListener('click', () => {
+        articulosCarrito = []; //reseteamos el arreglo
+       limpiarHTML(); //Eliminamos todo el HTML
+    });
 }
 
 
@@ -37,7 +44,7 @@ function eliminarCurso(e) {
         const cursoId = e.target.getAttribute('data-id'); //accedemos al id del curso para posteriomente eliminarlo
 
 
-
+        //si hay un articulo con más de una vez con ese click, lo que hacemos es reducir la cantidad y actualizar el precio
         const mayUno = articulosCarrito.some(curso => {
 
             if (curso.id === cursoId) {
