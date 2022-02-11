@@ -27,6 +27,7 @@ function cargarEventListeners() {
     //vcaciar el carrito
     vaciarCarrito.addEventListener('click', () => {
         articulosCarrito = []; //reseteamos el arreglo
+        ocultarPrecioCantidad();
         limpiarHTML(); //Eliminamos todo el HTML
     });
 }
@@ -64,14 +65,18 @@ function eliminarCurso(e) {
                     articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
 
                     //Agregamos la clase total al div del precioTotal y a la notificación
-                    if (articulosCarrito.length == 0) {
-                        soyDiv.classList.add('total');
-                        notificacion.classList.add('total');
-                    }
+                    ocultarPrecioCantidad();
                     carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
                 }
             }
         });
+    }
+}
+
+function ocultarPrecioCantidad() {
+    if (articulosCarrito.length == 0) {
+        soyDiv.classList.add('total');
+        notificacion.classList.add('total');
     }
 }
 
