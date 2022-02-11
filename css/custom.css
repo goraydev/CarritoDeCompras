@@ -51,6 +51,27 @@ ul {
   position: relative;
 }
 
+.notificacion {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 3rem;
+}
+
+
+@media (min-width: 568px) {
+  .notificacion {
+    top: 1rem;
+    left: 2rem;
+  }
+}
+
 .submenu #carrito {
   display: none;
 }
@@ -75,7 +96,7 @@ ul {
   overflow-y: scroll;
 }
 
-.total{
+.total {
   display: none;
 }
 

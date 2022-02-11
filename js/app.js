@@ -5,6 +5,7 @@ const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const precioTotal = document.querySelector('.precioTotal');
 const soyDiv = precioTotal.parentElement.parentElement;
+const notificacion = document.querySelector('.notificacion');
 
 let articulosCarrito = [];
 
@@ -62,20 +63,15 @@ function eliminarCurso(e) {
                     //Eliminar dle arreglo articulosCarrito por el data-id
                     articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
 
-                    //Agregamos la clase total al div del precioTotal
+                    //Agregamos la clase total al div del precioTotal y a la notificación
                     if (articulosCarrito.length == 0) {
                         soyDiv.classList.add('total');
+                        notificacion.classList.add('total');
                     }
                     carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
                 }
             }
         });
-
-
-
-
-
-
     }
 }
 
@@ -194,10 +190,25 @@ function obtenerPrecioTotal(precio) {
         precioTotal.textContent = `$${sumPrecioTotal}`
     }
 
-    console.log(sumPrecioTotal);
+    /*  console.log(sumPrecioTotal); */
+    obtenerCantidadTotal();
 
 }
 
+
+function obtenerCantidadTotal() {
+    let sumCantidadTotal = 0;
+    articulosCarrito.forEach(curso => {
+
+        sumCantidadTotal += curso.cantidad;
+    });
+
+    console.log(sumCantidadTotal);
+    if (sumCantidadTotal > 0) {
+        notificacion.classList.remove('total');
+        notificacion.textContent = sumCantidadTotal;
+    }
+}
 
 
 //ELIMINA LOS CURSOS DEL TBODY
