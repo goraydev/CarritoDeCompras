@@ -75,6 +75,10 @@ ul {
   overflow-y: scroll;
 }
 
+.total{
+  display: none;
+}
+
 .vacio {
   padding: 10px;
   background-color: crimson;

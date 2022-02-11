@@ -3,6 +3,9 @@ const carrito = document.querySelector('#carrito');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
+const precioTotal = document.querySelector('.precioTotal');
+const soyDiv = precioTotal.parentElement.parentElement;
+
 let articulosCarrito = [];
 
 let infoCurso = {};
@@ -11,6 +14,7 @@ let infoCurso = {};
 console.log(contenedorCarrito);
 
 cargarEventListeners();
+
 function cargarEventListeners() {
     //cuando se agregas un curso al presionar agregar al carrito
     listaCursos.addEventListener('click', agregarCurso);
@@ -22,7 +26,7 @@ function cargarEventListeners() {
     //vcaciar el carrito
     vaciarCarrito.addEventListener('click', () => {
         articulosCarrito = []; //reseteamos el arreglo
-       limpiarHTML(); //Eliminamos todo el HTML
+        limpiarHTML(); //Eliminamos todo el HTML
     });
 }
 
@@ -43,7 +47,6 @@ function eliminarCurso(e) {
     if (e.target.classList.contains('borrar-curso')) {
         const cursoId = e.target.getAttribute('data-id'); //accedemos al id del curso para posteriomente eliminarlo
 
-
         //si hay un articulo con más de una vez con ese click, lo que hacemos es reducir la cantidad y actualizar el precio
         const mayUno = articulosCarrito.some(curso => {
 
@@ -59,6 +62,10 @@ function eliminarCurso(e) {
                     //Eliminar dle arreglo articulosCarrito por el data-id
                     articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
 
+                    //Agregamos la clase total al div del precioTotal
+                    if (articulosCarrito.length == 0) {
+                        soyDiv.classList.add('total');
+                    }
                     carritoHTML(); //volvemos a iterar sobre carrito y mostrar su html
                 }
             }
@@ -85,31 +92,42 @@ function leerDatosCurso(curso) {
         id: curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1,
     }
+
+
+
     //revisa si un curso ya existe en el carrito
     const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
     if (existe) {
         //actualizamos la cantidad
         const cursos = articulosCarrito.map(curso => {
 
+
             if (curso.id === infoCurso.id) {
 
 
                 curso.cantidad++;
 
+
                 actualizarPrecio(infoCurso, curso);
+
 
 
                 return curso;
             } else {
+
                 return curso;
             }
 
         });
         articulosCarrito = [...cursos];
+
+
+
     } else {
         //agregamos el elemnto al arreglo de carrito
 
         articulosCarrito = [...articulosCarrito, infoCurso];
+
     }
     carritoHTML();
 
@@ -128,27 +146,58 @@ function actualizarPrecio(infoCurso, curso) {
 //Muestra el carrito de compras en el HTML
 
 function carritoHTML() {
+
     limpiarHTML();
+
     articulosCarrito.forEach((curso) => {
         const { imagen, titulo, precio, cantidad, id } = curso;
+
+
+
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>
-                <img src="${imagen}">
-            </td>
-            <td>${titulo}</td>
-            <td>${precio}</td>
-            <td>${cantidad}</td>
-            <td>
-                <a href="#" class="borrar-curso" data-precio="${precio}"  data-id="${id}">X</a>
-            </td>
+        <td>
+        <img src="${imagen}">
+        </td>
+        <td>${titulo}</td>
+        <td>${precio}</td>
+        <td>${cantidad}</td>
+        
+        <td>
+        <a href="#" class="borrar-curso"  data-id="${id}">X</a>
+        </td>
         `;
+
+
+
+
 
 
         //agrega el curso al HTML
         contenedorCarrito.appendChild(row);
+        obtenerPrecioTotal(precio);
+
     });
+
+
 }
+
+function obtenerPrecioTotal(precio) {
+
+    let sumPrecioTotal = 0;
+    for (let i = 0; i < articulosCarrito.length; i++) {
+        sumPrecioTotal += Number(articulosCarrito[i].precio.slice(1, precio.lenght));
+    }
+
+    if (sumPrecioTotal > 0) {
+        soyDiv.classList.remove('total');
+        precioTotal.textContent = `$${sumPrecioTotal}`
+    }
+
+    console.log(sumPrecioTotal);
+
+}
+
 
 
 //ELIMINA LOS CURSOS DEL TBODY
