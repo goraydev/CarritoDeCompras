@@ -14,6 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -22,21 +25,32 @@
             <h2 class="header__title">Welcome Back</h2>
             <div class="header__container">
                 <div class="header__field">
-                    <input class="header__input" type="text" name="Search Games..." id="search" placeholder="Search Games...">
+                    <input class="header__input" type="text" name="game" id="search" placeholder="Search Games...">
                 </div>
                 <div class="car">
-                    <table class="tbHead">
-                        <thead>
-                            <tr>
-                                <th>Game</th>
-                                <th>Price</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="tbBody">
-
-                        </tbody>
-                    </table>
+                    <i class="fa-solid fa-cart-shopping car__img"></i>
+                    <div class="car__buy">
+                        <table class="table">
+                            <thead class="table__tbHead">
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Game</th>
+                                    <th>Price</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table__tbBody">
+                                <tr>
+                                    <td>Image</td>
+                                    <td>Game</td>
+                                    <td>Price</td>
+                                    <td>Amount</td>
+                                    <td>Actions</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
