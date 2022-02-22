@@ -1,8 +1,12 @@
 :root {
   --pink: #b13c70;
+  --boldPurple: #48477f;
   --purple: #34235e;
+  --lightPurple: #6160c5;
+  --sky: #2596be;
   --white: #effeff;
-  --bgLinear: linear-gradient(to right, #34235e 0%, #b13c70 90%);
+  --bgLinear: linear-gradient(to right, #34235e, #b13c70);
+  --bgLinearChange: linear-gradient(to right, #b13c70, #34235e);
   --word: "Open Sans", sans-serif;
 }
 *,
@@ -21,6 +25,12 @@ html {
 
 body {
   background: var(--bgLinear);
+  font-family: var(--word);
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .container {
@@ -182,6 +192,7 @@ nav
 ======================================================*/
 .nav {
   background-color: rgb(0 0 0 / 0.2);
+  backdrop-filter: blur(1rem);
   position: fixed;
   width: 90%;
   bottom: 0;
@@ -241,4 +252,113 @@ nav
   color: var(--white);
   opacity: 0.5;
   font-size: 2rem;
+}
+
+/*====================================================
+Hero
+======================================================*/
+.hero__img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+/*====================================================
+Main
+======================================================*/
+.games {
+  margin-top: 5rem;
+}
+.games__heading {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.games__grid {
+  display: grid;
+  /* justify-items: center; */
+  gap: 1rem;
+  padding: 2rem 0 10rem;
+}
+
+@media (min-width: 768px) {
+  .games__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .games__grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  .games__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background-color: var(--boldPurple);
+  border-radius: 2rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img {
+  width: 90%;
+  height: 15rem;
+  object-fit: cover;
+  margin: 1rem auto;
+  border-radius: 2rem;
+}
+
+.card__container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card__central {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__title {
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.card__stars {
+  height: 4rem;
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+.card__paragraph {
+  color: var(--white);
+  font-weight: 300;
+  opacity: 0.6;
+}
+.card__buy {
+  text-decoration: none;
+  background-image: var(--bgLinear);
+  margin-top: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 1rem;
+  color: var(--white);
+}
+
+.card__buy:hover {
+  background-image: var(--bgLinearChange);
 }
