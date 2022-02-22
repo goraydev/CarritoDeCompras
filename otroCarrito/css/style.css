@@ -304,9 +304,16 @@ Main
 .card {
   background-color: var(--boldPurple);
   border-radius: 2rem;
-  width: 20rem;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 20rem;
+  }
 }
 
 .card__img {
@@ -349,6 +356,14 @@ Main
   font-weight: 300;
   opacity: 0.6;
 }
+.card__price {
+  color: var(--white);
+  text-align: right;
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 0.2rem 0;
+}
+
 .card__buy {
   text-decoration: none;
   background-image: var(--bgLinear);
