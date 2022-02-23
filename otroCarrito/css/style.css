@@ -301,6 +301,10 @@ Main
   }
 }
 
+/*====================================================
+card
+======================================================*/
+
 .card {
   background-color: var(--boldPurple);
   border-radius: 2rem;
@@ -392,14 +396,14 @@ Store
   overflow: hidden;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 10rem;
 }
 
 @media (min-width: 768px) {
   .store__grid {
-    padding: 2rem 0;
-    overflow-x: hidden;
+    padding: 0 0 10rem;
+    margin-bottom: 0;
     grid-template-columns: repeat(2, 1fr);
   }
 }
