@@ -217,7 +217,7 @@ nav
   gap: 2rem;
   padding: 1rem 0;
   margin: 2rem;
-  z-index: 2;
+  z-index: 8;
   border-radius: 2rem;
 }
 
