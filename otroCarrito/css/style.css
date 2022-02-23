@@ -148,7 +148,7 @@ HEADER
 .car:hover .car__buy {
   display: block;
   position: absolute;
-  top: 120%;
+  top: 100%;
   z-index: 1;
   min-height: 400px;
   min-width: 300px;
@@ -157,11 +157,14 @@ HEADER
 @media (min-width: 768px) {
   .car:hover .car__buy {
     right: 0;
-    top: 100%;
   }
 }
 
 .table {
+  display: grid;
+  grid-template-rows: 2rem 20rem;
+  overflow: hidden;
+  overflow-y: scroll;
   border-collapse: collapse;
   font-family: var(--word);
 }
@@ -440,6 +443,7 @@ Store
 
 @media (min-width: 768px) {
   .store__grid {
+    overflow-x: hidden;
     padding: 0 0 10rem;
     margin-bottom: 0;
     grid-template-columns: repeat(2, 1fr);

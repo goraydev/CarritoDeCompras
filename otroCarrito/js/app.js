@@ -16,15 +16,30 @@ function loadEventListeners() {
 function addGame(e) {
     e.preventDefault();
     if (e.target.classList.contains('card__buy')) {
-        //seleccionamos todos los nodos importante para ingresar al carrito
+
+
         const gameSelect = e.target.parentElement.parentElement;
         readDataGame(gameSelect);
+        notificationAdd();
+
     }
 }
 
+
+function notificationAdd() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Game added to cart',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+
 function readDataGame(game) {
 
-    /* creamos un objeto con el juego en el que se hizo click */
+
     infoGame = {
         id: game.querySelector('.card__buy').getAttribute('data-id'),
         image: game.querySelector('.card__img').src,
@@ -32,7 +47,7 @@ function readDataGame(game) {
         price: Number(game.querySelector('.card__price span').textContent)
     }
 
-    //Agregamos el elemento del objeto al array de articlesGame
+
     articlesCar = [...articlesCar, infoGame];
 
     console.log(articlesCar);
@@ -47,7 +62,7 @@ function addCarHTML() {
 
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td>${image}</td>
+        <td><img src="${image}"></td>
         <td>${gameName}</td>
         <td>${price}</td>
         <td>
