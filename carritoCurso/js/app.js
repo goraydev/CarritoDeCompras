@@ -94,6 +94,8 @@ function leerDatosCurso(curso) {
         cantidad: 1,
     }
 
+ 
+
 
 
     //revisa si un curso ya existe en el carrito

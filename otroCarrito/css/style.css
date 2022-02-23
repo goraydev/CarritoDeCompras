@@ -134,6 +134,7 @@ HEADER
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 5;
 }
 
 .car__img {
@@ -156,7 +157,7 @@ HEADER
 @media (min-width: 768px) {
   .car:hover .car__buy {
     right: 0;
-    top: 120%;
+    top: 100%;
   }
 }
 
@@ -183,8 +184,18 @@ HEADER
 
 .table__tbBody tr td {
   background-color: rgb(0 0 0 / 0.2);
+  backdrop-filter: blur(1rem);
   color: var(--white);
-  padding: 0.5rem 1rem;
+  padding: 2rem 1rem;
+}
+
+.car__empty {
+  display: block;
+  text-align: center;
+  background-color: var(--white);
+  text-decoration: none;
+  color: var(--purple);
+  padding: 1rem 0;
 }
 
 /*====================================================
