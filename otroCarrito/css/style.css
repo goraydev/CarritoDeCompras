@@ -377,3 +377,52 @@ Main
 .card__buy:hover {
   background-image: var(--bgLinearChange);
 }
+
+/*====================================================
+Store
+======================================================*/
+.store__heading {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.store__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 20rem);
+  overflow: hidden;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  margin-bottom: 10rem;
+}
+
+@media (min-width: 768px) {
+  .store__grid {
+    padding: 2rem 0;
+    overflow-x: hidden;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .store__grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  .store__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1800px) {
+  .store__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.store__grid .card {
+  scroll-snap-align: center;
+}

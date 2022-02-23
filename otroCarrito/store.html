@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store games, let's play">
+    <meta name="keywords" content="games, store, store games">
+    <meta name="author" content="Gerson Aguedo Yanac | GorayCode">
+    <title>StoreGames</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="header container">
+        <div class="header__flex">
+            <h2 class="header__title">Welcome Back</h2>
+            <div class="header__container">
+                <div class="header__field">
+                    <input class="header__input" type="text" name="game" id="search" placeholder="Search Games...">
+                </div>
+                <div class="car">
+                    <i class="fa-solid fa-cart-shopping car__img"></i>
+                    <div class="car__buy">
+                        <table class="table">
+                            <thead class="table__tbHead">
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Game</th>
+                                    <th>Price</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table__tbBody">
+                                <tr>
+                                    <td>Image</td>
+                                    <td>Game</td>
+                                    <td>Price</td>
+                                    <td>Amount</td>
+                                    <td>Actions</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="nav">
+        <a href="index.html" class="nav__link">
+            <i class="fa-solid fa-house nav__icon"></i>
+        </a>
+        <a href="#" class="nav__link nav__link--active">
+            <i class="fa-solid fa-store nav__icon"></i>
+        </a>
+        <a href="#" class="nav__link">
+            <i class="fa-solid fa-download nav__icon"></i>
+        </a>
+    </nav>
+
+    <main class="store container">
+        <h1 class="store__heading">Games</h1>
+        <div class="store__grid">
+            <div class="card">
+                <img class="card__img" src="img/battlefield2042.jpeg" alt="battlefield2042">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Battle Field 2042</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+                    <p class="card__paragraph">
+                        It's available in three distinct game mode versions that otherwise share the same general
+                        gameplay
+                        and game engine
+                    </p>
+                    <p class="card__price">$<span>48.99</span></p>
+                    <a href="#" class="card__buy" data-id="5">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/crash.jpg" alt="crash">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Crash</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        Free-to-play shooter game developer by Timi Studio Group and published by Activision for Android
+                        and
+                        iOS
+                    </p>
+                    <p class="card__price">$<span>38.99</span></p>
+                    <a href="#" class="card__buy" data-id="6">Add to car</a>
+                </div>
+            </div> <!-- card -->
+
+            <div class="card">
+                <img class="card__img" src="img/cyberpunk.jpg" alt="cyberpunk">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Cyberpunk</p>
+                        <img class="card__stars" src="img/clasificacion5.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        The twenty -fourth installment in the Need for Speed series and commemorates the series's 25th
+                        anniversary
+                    </p>
+                    <p class="card__price">$<span>58.99</span></p>
+                    <a href="#" class="card__buy" data-id="7">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/deathloop.jpg" alt="deathloop">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Death Loop</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="8">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/dragonBall.jpeg" alt="dragonBall">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Dragon Ball Kakarot</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="9">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/fifa.jpg" alt="fifa">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Fifa 2022</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="10">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/forzaHorizon.jpg" alt="forzaHorizon">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Forza Horizon</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="11">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/godofwar.jpg" alt="God of War">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">God of war</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="12">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/grandtheftautoV.jpg" alt="grandtheftautoV">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Grand thef auto V</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="13">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/granTurismo.jpg" alt="granTurismo">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Gran Turismo 7</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="14">Add to car</a>
+                </div>
+            </div> <!-- card -->
+
+            <div class="card">
+                <img class="card__img" src="img/hitman.jpg" alt="hitman">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">Hitman 3</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="15">Add to car</a>
+                </div>
+            </div> <!-- card -->
+            <div class="card">
+                <img class="card__img" src="img/leagueoflegends.jpeg" alt="leagueoflegends">
+                <div class="card__container">
+                    <div class="card__central">
+                        <p class="card__title">League of legends</p>
+                        <img class="card__stars" src="img/clasificacion.png" alt="">
+                    </div>
+
+                    <p class="card__paragraph">
+                        In an online multiplayer battle royale game developed and published by PUBG Corporation, a
+                        subsidiary of Bluehole. The game is based on previous mods
+                    </p>
+                    <p class="card__price">$<span>68.99</span></p>
+                    <a href="#" class="card__buy" data-id="16">Add to car</a>
+                </div>
+            </div> <!-- card -->
+
+        </div>
+    </main>
+
+</body>
