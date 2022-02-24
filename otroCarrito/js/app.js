@@ -4,6 +4,8 @@ const emptyCar = document.querySelector('#emptyCart');
 const listGames = document.querySelector('.games');
 const table = document.querySelector('.table');
 const priceTotal = document.querySelector('.car__priceT span');
+const notificationAmountTotal = document.querySelector('.header__notification');
+console.log(notificationAmountTotal);
 
 let articlesCar = [];
 let infoGame = {};
@@ -108,7 +110,6 @@ function deleteGame(e) {
     if (e.target.classList.contains('deleteGame')) {
         //accedemos al id de ese juego al que queremos eliminar
         const gameId = e.target.getAttribute('data-id');
-        console.log(gameId);
 
         //eliminamos el juego del array al que se haya dado click
         //para ello filtramos aquellos que sean diferentes al gameId
@@ -154,18 +155,29 @@ function sumPriceTotal(price) {
     if (articlesCar.length > 0) {
         priceTotal.textContent = `${sumPriceTotal.toFixed(2)}`;
         showPricetAmount();
+        sumAmountTotal();
     }
 
+}
+
+function sumAmountTotal() {
+    let amountTotal = 0;
+    amountTotal += articlesCar.length;
+    notificationAmountTotal.textContent = `${amountTotal}`;
+
+    console.log(amountTotal);
 }
 
 function showPricetAmount() {
     if (articlesCar.length > 0) {
         priceTotal.parentElement.style.display = 'block';
+        notificationAmountTotal.style.visibility = 'visible';
     }
 }
 
 function hidePricetAmount() {
     if (articlesCar.length == 0) {
+        notificationAmountTotal.style.visibility = 'hidden';
         priceTotal.parentElement.style.display = 'none';
     }
 }

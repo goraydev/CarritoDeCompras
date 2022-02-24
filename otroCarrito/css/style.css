@@ -73,6 +73,30 @@ HEADER
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+}
+
+.header__notification {
+  position: absolute;
+  right: 50%;
+  top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--bgLinearChange);
+  color: var(--white);
+  border-radius: 2rem;
+  width: 2rem;
+  height: 2rem;
+  z-index: 10;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .header__notification {
+    right: -1rem;
+    top: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
