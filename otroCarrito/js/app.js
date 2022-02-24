@@ -40,12 +40,30 @@ function notificationAdd() {
 }
 
 function emptyArticleCar() {
+    notificacionEmpty();
     articlesCar = [];
     hidePricetAmount();
     addCarHTML();
     console.log(articlesCar);
 }
 
+function notificacionEmpty() {
+
+    if (articlesCar.length > 0) {
+        let timerInterval
+        Swal.fire({
+            title: 'Emptying cart',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        })
+    }
+}
 
 function readDataGame(game) {
 
