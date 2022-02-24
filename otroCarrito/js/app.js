@@ -3,6 +3,7 @@ const containerTable = document.querySelector('.table__tbBody');
 const emptyCar = document.querySelector('#emptyCarrito');
 const listGames = document.querySelector('.games');
 const table = document.querySelector('.table');
+const priceTotal = document.querySelector('.car__priceT span');
 
 let articlesCar = [];
 let infoGame = {};
@@ -16,8 +17,6 @@ function loadEventListeners() {
 function addGame(e) {
     e.preventDefault();
     if (e.target.classList.contains('card__buy')) {
-
-
         const gameSelect = e.target.parentElement.parentElement;
         readDataGame(gameSelect);
         notificationAdd();
@@ -47,12 +46,34 @@ function readDataGame(game) {
         price: Number(game.querySelector('.card__price span').textContent)
     }
 
+    //revisa si un juego ya esta en el carrito
+    const existGame = articlesCar.some(game => game.id === infoGame.id);
 
-    articlesCar = [...articlesCar, infoGame];
+    if (existGame) { //true
 
-    console.log(articlesCar);
+        //games contiene el array con los juegos que se hayan repetido
+        const games = articlesCar.map(game => {
+
+            if (game.id === infoGame.id) {
+
+                return game;
+            } else {
+                return game;
+            }
+        });
+
+
+        articlesCar = [...games]; //agregamos solo una vez y evitamos la duplicación
+
+
+
+    } else {
+        articlesCar = [...articlesCar, infoGame];
+    }
+
     addCarHTML();
 }
+
 
 /* mostrar los atributos de la compra de un juego */
 function addCarHTML() {
@@ -70,8 +91,20 @@ function addCarHTML() {
         </td>
         `;
         containerTable.appendChild(row);
+        sumPriceTotal(price);
 
     })
+}
+
+function sumPriceTotal(price) {
+    let sumPriceTotal = 0;
+    for (let i = 0; i < articlesCar.length; i++) {
+
+        sumPriceTotal += articlesCar[i].price;
+    }
+
+    priceTotal.textContent = `${sumPriceTotal}`;
+
 }
 
 function clearHTML() {
