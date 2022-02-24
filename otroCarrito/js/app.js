@@ -1,6 +1,6 @@
 const carBuy = document.querySelector('.car__buy');
 const containerTable = document.querySelector('.table__tbBody');
-const emptyCar = document.querySelector('#emptyCarrito');
+const emptyCar = document.querySelector('#emptyCart');
 const listGames = document.querySelector('.games');
 const table = document.querySelector('.table');
 const priceTotal = document.querySelector('.car__priceT span');
@@ -12,6 +12,10 @@ let infoGame = {};
 loadEventListeners();
 function loadEventListeners() {
     listGames.addEventListener('click', addGame);
+    //si le damos click a x en un carrito
+    carBuy.addEventListener('click', deleteGame);
+
+    emptyCar.addEventListener('click', emptyArticleCar);
 }
 
 function addGame(e) {
@@ -33,6 +37,13 @@ function notificationAdd() {
         showConfirmButton: false,
         timer: 1500
     })
+}
+
+function emptyArticleCar() {
+    articlesCar = [];
+    hidePricetAmount();
+    addCarHTML();
+    console.log(articlesCar);
 }
 
 
@@ -74,6 +85,26 @@ function readDataGame(game) {
     addCarHTML();
 }
 
+function deleteGame(e) {
+
+    if (e.target.classList.contains('deleteGame')) {
+        //accedemos al id de ese juego al que queremos eliminar
+        const gameId = e.target.getAttribute('data-id');
+        console.log(gameId);
+
+        //eliminamos el juego del array al que se haya dado click
+        //para ello filtramos aquellos que sean diferentes al gameId
+        articlesCar = articlesCar.filter(game => game.id !== gameId);
+
+        //dejamos de mostrar el precio total en caso ya no quede ninguno
+        hidePricetAmount();
+
+
+        //mostramos en el carrito los que son diferentes al que se hizo click en X
+        addCarHTML();
+
+    }
+}
 
 /* mostrar los atributos de la compra de un juego */
 function addCarHTML() {
@@ -102,10 +133,25 @@ function sumPriceTotal(price) {
 
         sumPriceTotal += articlesCar[i].price;
     }
-
-    priceTotal.textContent = `${sumPriceTotal}`;
+    if (articlesCar.length > 0) {
+        priceTotal.textContent = `${sumPriceTotal.toFixed(2)}`;
+        showPricetAmount();
+    }
 
 }
+
+function showPricetAmount() {
+    if (articlesCar.length > 0) {
+        priceTotal.parentElement.style.display = 'block';
+    }
+}
+
+function hidePricetAmount() {
+    if (articlesCar.length == 0) {
+        priceTotal.parentElement.style.display = 'none';
+    }
+}
+
 
 function clearHTML() {
     while (containerTable.firstChild) {

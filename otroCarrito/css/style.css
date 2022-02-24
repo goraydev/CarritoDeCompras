@@ -192,8 +192,8 @@ HEADER
   padding: 2rem 1rem;
 }
 
-.car__priceT{
-  display: block;
+.car__priceT {
+  display: none;
   background-color: rgb(0 0 0 / 0.8);
   color: var(--white);
   padding: 1rem 0;
@@ -207,6 +207,13 @@ HEADER
   text-decoration: none;
   color: var(--purple);
   padding: 1rem 0;
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.car__empty:hover {
+  background-image: var(--bgLinear);
+  color: var(--white);
 }
 
 /*====================================================
