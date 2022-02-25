@@ -21,6 +21,14 @@ function loadEventListeners() {
 
     emptyCar.addEventListener('click', emptyArticleCar);
 
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        articlesCar = JSON.parse(localStorage.getItem('cart')) || [];
+        addCarHTML();
+    });
+
 }
 
 function addGame(e) {
@@ -149,8 +157,15 @@ function addCarHTML() {
         containerTable.appendChild(row);
         sumPriceTotal(price);
 
-    })
+    });
+
+    sincronitationStorage();
 }
+
+function sincronitationStorage() {
+    localStorage.setItem('cart', JSON.stringify(articlesCar));
+}
+
 
 function sumPriceTotal(price) {
     let sumPriceTotal = 0;
