@@ -22,12 +22,11 @@ function loadEventListeners() {
     emptyCar.addEventListener('click', emptyArticleCar);
 
 
-
     document.addEventListener('DOMContentLoaded', () => {
-
         articlesCar = JSON.parse(localStorage.getItem('cart')) || [];
         addCarHTML();
     });
+
 
 }
 
@@ -121,6 +120,7 @@ function readDataGame(game) {
 
 function deleteGame(e) {
 
+    e.preventDefault();
     if (e.target.classList.contains('deleteGame')) {
         //accedemos al id de ese juego al que queremos eliminar
         const gameId = e.target.getAttribute('data-id');
@@ -160,11 +160,13 @@ function addCarHTML() {
     });
 
     sincronitationStorage();
+
 }
 
 function sincronitationStorage() {
     localStorage.setItem('cart', JSON.stringify(articlesCar));
 }
+
 
 
 function sumPriceTotal(price) {
