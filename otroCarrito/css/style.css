@@ -79,7 +79,7 @@ HEADER
 .header__notification {
   position: absolute;
   right: 50%;
-  top: 5rem;
+  top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,7 +140,7 @@ HEADER
   backdrop-filter: blur(1rem);
   color: var(--white);
   caret-color: var(--white);
-  padding: 0.5rem 0 0.5rem 2rem;
+  padding: 1rem 0 1rem 2rem;
 }
 
 .header__input:focus {

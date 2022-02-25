@@ -5,10 +5,12 @@ const listGames = document.querySelector('.games');
 const table = document.querySelector('.table');
 const priceTotal = document.querySelector('.car__priceT span');
 const notificationAmountTotal = document.querySelector('.header__notification');
-console.log(notificationAmountTotal);
+
+
 
 let articlesCar = [];
 let infoGame = {};
+
 
 
 loadEventListeners();
@@ -18,6 +20,7 @@ function loadEventListeners() {
     carBuy.addEventListener('click', deleteGame);
 
     emptyCar.addEventListener('click', emptyArticleCar);
+
 }
 
 function addGame(e) {
@@ -29,6 +32,9 @@ function addGame(e) {
 
     }
 }
+
+
+
 
 
 function notificationAdd() {
@@ -164,8 +170,6 @@ function sumAmountTotal() {
     let amountTotal = 0;
     amountTotal += articlesCar.length;
     notificationAmountTotal.textContent = `${amountTotal}`;
-
-    console.log(amountTotal);
 }
 
 function showPricetAmount() {
