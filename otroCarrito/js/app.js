@@ -1,3 +1,5 @@
+import { queryApi } from "./api.js";
+
 const carBuy = document.querySelector('.car__buy');
 const containerTable = document.querySelector('.table__tbBody');
 const emptyCar = document.querySelector('#emptyCart');
@@ -22,6 +24,7 @@ function loadEventListeners() {
 
 
     document.addEventListener('DOMContentLoaded', () => {
+        queryApi();
         articlesCar = JSON.parse(localStorage.getItem('cart')) || [];
         addCarHTML();
        
@@ -82,7 +85,6 @@ function createCard() {
         }
 
     });
-
 
 }
 
