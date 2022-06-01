@@ -487,6 +487,9 @@ Store
     margin-bottom: 0;
     grid-template-columns: repeat(2, 1fr);
   }
+  .store__grid .store__gridSearch{
+    padding: 0rem;
+  }
 }
 
 @media (min-width: 1200px) {
