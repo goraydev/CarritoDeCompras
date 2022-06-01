@@ -12,7 +12,6 @@ let articlesCar = [];
 let infoGame = {};
 
 
-
 loadEventListeners();
 function loadEventListeners() {
     listGames.addEventListener('click', addGame);
@@ -25,10 +24,69 @@ function loadEventListeners() {
     document.addEventListener('DOMContentLoaded', () => {
         articlesCar = JSON.parse(localStorage.getItem('cart')) || [];
         addCarHTML();
+       
+    });
+}
+
+function createCard() {
+    const storeGrid = document.querySelector('.store__grid');
+
+    const search = document.querySelector('#search');
+
+    search.addEventListener('keyup', (e) => {
+
+        console.log(e.target.value.length);
+        if (e.target.value.length) {
+            //none all
+            for (let i = 0; i < storeGrid.children.length; i++) {
+                if (i < 12) {
+                    storeGrid.children[i].style.display = 'none';
+                }
+            }
+
+            const buscar = articlesCar.filter(article => article.gameName === e.target.value);
+            console.log(buscar);
+            buscar.forEach(card => {
+                const { id, gameName, image, price } = card;
+                const div = document.createElement('div');
+                div.className = 'card search';
+                div.innerHTML = `
+                     <img class="card__img" src="${image}" alt="${gameName}">
+                     <div class="card__container">
+                         <div class="card__central">
+                             <p class="card__title">${gameName}</p>
+                             <img class="card__stars" src="img/clasificacion5.png" alt="">
+                         </div>
+                         <p class="card__paragraph">
+                              Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim
+                             laboris sit quis elit.
+                         </p>
+                         <p class="card__price">$<span>${price}</span></p>
+                         <a href="#" class="card__buy" data-id="${id}">Add to car</a>
+                     </div>
+                 `;
+                console.log(div);
+                storeGrid.appendChild(div);
+            });
+        } else {
+            //none all
+            const getCardSearch = document.querySelector('.search');
+            if (getCardSearch !== null) {
+                getCardSearch.remove();
+            }
+            for (let i = 0; i < storeGrid.children.length; i++) {
+                if (i < 11) {
+                    storeGrid.children[i].style.display = 'block';
+                }
+            }
+        }
+
     });
 
 
 }
+
+
 
 function addGame(e) {
     e.preventDefault();
@@ -36,7 +94,6 @@ function addGame(e) {
         const gameSelect = e.target.parentElement.parentElement;
         readDataGame(gameSelect);
         notificationAdd();
-
     }
 }
 
@@ -158,7 +215,6 @@ function addCarHTML() {
         sumPriceTotal(price);
 
     });
-
     sincronitationStorage();
 
 }
