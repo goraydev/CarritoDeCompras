@@ -71,7 +71,6 @@ function showGameSearch(games, write) {
     const storeGridS = document.querySelector('.store__gridSearch');
     let gameSearch = games.filter(game => game.name.toLowerCase() === write || game.name === write);
     let firstGames = games.filter(game => game.name.toLowerCase().charAt(0) === write.charAt(0));
-    console.log(firstGames);
     limpiarHTML();
 
     if (write.length === 1) {

@@ -78,8 +78,8 @@ HEADER
 
 .header__notification {
   position: absolute;
-  right: 50%;
-  top: 4rem;
+  right: 35%;
+  top: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;

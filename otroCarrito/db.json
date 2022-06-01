@@ -110,5 +110,41 @@
     "img": "leagueoflegends",
     "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
     "price": "68.99"
+  },
+  {
+    "id": "17",
+    "name": "Mortal Kombat",
+    "img": "mortalKombat",
+    "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
+    "price": "68.99"
+  },
+  {
+    "id": "18",
+    "name": "Red Dead",
+    "img": "reddead",
+    "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
+    "price": "68.99"
+  },
+  {
+    "id": "19",
+    "name": "Resident Evil",
+    "img": "residentEvil",
+    "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
+    "price": "68.99"
+  },
+  {
+    "id": "20",
+    "name": "Spider man Miles Morales",
+    "img": "spidermanMilesMorales",
+    "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
+    "price": "68.99"
+  },
+
+  {
+    "id": "21",
+    "name": "The Medium",
+    "img": "theMedium",
+    "describe": "Deserunt qui enim ex elit non est Lorem irure consequat ipsum Lorem ad. Dolore proident qui anim laboris sit quis elit.",
+    "price": "68.99"
   }
 ]
