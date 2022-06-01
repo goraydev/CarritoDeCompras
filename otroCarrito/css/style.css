@@ -79,7 +79,7 @@ HEADER
 .header__notification {
   position: absolute;
   right: 50%;
-  top: 1rem;
+  top: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -472,7 +472,7 @@ Store
 
 .store__grid {
   display: grid;
-  grid-template-columns: repeat(12, 20rem);
+  grid-template-columns: repeat(16, 20rem);
   overflow: hidden;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;

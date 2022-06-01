@@ -68,7 +68,7 @@ export function searchGame() {
 
 function showGameSearch(games, write) {
     const storeGridS = document.querySelector('.store__gridSearch');
-    let gameSearch = games.filter(game => game.name === write);
+    let gameSearch = games.filter(game => game.name.toLowerCase() === write || game.name === write);
     limpiarHTML();
     gameSearch.forEach(card => {
         const { id, name, img, describe, price } = card;
