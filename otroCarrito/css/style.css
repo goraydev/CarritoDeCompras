@@ -479,7 +479,13 @@ Store
   gap: 1rem;
   margin-bottom: 10rem;
 }
-
+.store__gridSearch {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 0 10rem;
+}
 @media (min-width: 768px) {
   .store__grid {
     overflow-x: hidden;
@@ -487,8 +493,10 @@ Store
     margin-bottom: 0;
     grid-template-columns: repeat(2, 1fr);
   }
-  .store__grid .store__gridSearch{
-    padding: 0rem;
+
+  .store__gridSearch {
+    flex-direction: row;
+    gap: 2rem;
   }
 }
 
