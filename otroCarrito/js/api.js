@@ -69,19 +69,16 @@ export function searchGame() {
 function showGameSearch(games, write) {
 
     const storeGridS = document.querySelector('.store__gridSearch');
-    let gameSearch = games.filter(game => game.name.toLowerCase() === write || game.name === write);
-    let firstGames = games.filter(game => game.name.toLowerCase().charAt(0) === write.charAt(0));
+    let gameSearch = games.filter(game => game.name.toLowerCase().includes(`${write}`));
     limpiarHTML();
 
-    if (write.length === 1) {
+    gameSearch.forEach(card => {
+        const { id, name, img, describe, price } = card;
+        //scripting
+        const divCard = document.createElement('div');
+        divCard.className = 'card';
 
-        firstGames.forEach(card => {
-            const { id, name, img, describe, price } = card;
-            //scripting
-            const divCard = document.createElement('div');
-            divCard.className = 'card';
-
-            divCard.innerHTML = `
+        divCard.innerHTML = `
            <img class="card__img" src="img/${img}.jpg" alt="${name}">
            <div class="card__container">
                <div class="card__central">
@@ -96,33 +93,9 @@ function showGameSearch(games, write) {
            </div>
            `;
 
-            storeGridS.appendChild(divCard);
-        });
-    } else {
-        gameSearch.forEach(card => {
-            const { id, name, img, describe, price } = card;
-            //scripting
-            const divCard = document.createElement('div');
-            divCard.className = 'card';
+        storeGridS.appendChild(divCard);
+    });
 
-            divCard.innerHTML = `
-           <img class="card__img" src="img/${img}.jpg" alt="${name}">
-           <div class="card__container">
-               <div class="card__central">
-                   <p class="card__title">${name}</p>
-                   <img class="card__stars" src="img/clasificacion.png" alt="stars">
-               </div>
-               <p class="card__paragraph">
-                   ${describe}
-               </p>
-               <p class="card__price">$<span>${price}</span></p>
-               <a href="#" class="card__buy" data-id="${id}">Add to car</a>
-           </div>
-           `;
-
-            storeGridS.appendChild(divCard);
-        });
-    }
 }
 
 function limpiarHTML() {
