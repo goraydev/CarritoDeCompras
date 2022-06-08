@@ -4,7 +4,6 @@ const carBuy = document.querySelector('.car__buy');
 const containerTable = document.querySelector('.table__tbBody');
 const emptyCar = document.querySelector('#emptyCart');
 const listGames = document.querySelector('.games');
-const table = document.querySelector('.table');
 const priceTotal = document.querySelector('.car__priceT span');
 const notificationAmountTotal = document.querySelector('.header__notification');
 
@@ -28,7 +27,7 @@ function loadEventListeners() {
         searchGame();
         articlesCar = JSON.parse(localStorage.getItem('cart')) || [];
         addCarHTML();
-       
+
     });
 }
 
